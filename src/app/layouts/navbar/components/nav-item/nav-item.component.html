@@ -1,0 +1,8 @@
+<a class="p-1 flex flex-row justify-between"
+ [routerLink]="[itemMenu.url]"  >
+ <div class="flex flex-row items-center p-0 m-0 gap-2">
+    <span class="" [innerHTML]="safeIcon"></span>
+    <p class="hidden md:block text-xs">{{itemMenu.title}}</p>
+</div>
+    <button class="hidden md:block" [innerHTML]="safeIconAction"></button>
+</a>
