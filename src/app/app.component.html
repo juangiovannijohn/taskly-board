@@ -1,13 +1,20 @@
 <div class="flex flex-col h-screen">
-  <div class="h-12 w-full bg-slate-500 border-white"></div>
-  <div class="flex flex-row w-full h-full bg-slate-700">
-    <div class="basis-1/4">
-      <button> esconder</button>
-      <app-navbar/>
+
+  <div class="flex flex-row w-full h-full">
+    <div [ngClass]="isShowNavBar? 'w-1/6': 'none'" class="">
+      <button (click)="showNavBar()"> esconder</button>
+      <div class="h-full">
+        <app-navbar *ngIf="isShowNavBar" />
+      </div>
     </div>
-    <div class="bg-neutral-700  flex-auto h-full w-full flex flex-col">
-      <div class="h-12 bg-neutral-400"></div>
-      <div class="h-full"></div>
+    <div [ngClass]="isShowNavBar? 'w-5/6': 'w-full'" class=" h-full flex flex-col">
+      <div class="ps-1/6 h-12 w-full border-white">
+        <app-header/>
+      </div>
+      <div class="h-full overflow-x-auto">
+        <app-board/>
+      </div>
     </div>
   </div>
 </div>
+

@@ -1,0 +1,9 @@
+<div class="card-container p-2 rounded">
+    <h4>{{data.title}}</h4>
+    <div class="overflow-hidden">
+        @for (task of tasks; track task.idUserHistory) {
+            <app-task-card [data]="task"></app-task-card>
+        }
+    </div>
+    <button (click)="addNew()" class="btn-outline">Nueva tarea</button>
+</div>

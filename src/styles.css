@@ -115,11 +115,93 @@
     font-style: normal;
 }
 
+.btn-primary{
+
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    text-align: center;
+    border: 0;
+    padding: 7px 16px;
+    min-height: 36px;
+    min-width: 36px;
+    color: #ffffff;
+    background: #008060;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
+    /* :hover {
+        background: #006e52;
+    } */
+
+}
+
+.btn-outline2{
+
+    outline: 0;
+    border: 1px solid #babfc3;
+    color: #202223;
+    background: #ffffff;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px;
+    /* :hover {
+        background: #f6f6f7;
+        outline: 1px solid transparent;
+    } */
+
+}
+
+.card{
+
+/* b radios, bg, border color, hopver, padding,   */
+}
+
+.inputs{
+/* 
+    input[type="submit"], button {
+      @apply bg-[var(--primary-color)] mt-3 py-1 px-2 rounded-sm w-full text-center text-[var(--primary-text-color)] hover:bg-[var(--secondary-color)] hover:cursor-pointer transition delay-75 ;
+    }
+    input[type="text"] {
+      @apply  rounded-sm p-1 text-neutral-900;
+    }
+    input[type="email"] {
+      @apply  rounded-sm p-1 text-neutral-900;
+    }
+
+    input[type="password"] {
+      @apply  rounded-sm p-1 text-neutral-900;
+    }
+    input[type="number"] {
+      @apply  rounded-sm p-1 text-neutral-900;
+    }
+    label{
+      @apply text-sm;
+    }
+
+
+
+
+*/
+}
+
 @layer base {
-    body {@apply bg-[#0E0E11] text-white};
+    body {@apply bg-taskly-background text-taskly-white};
     h1 {@apply text-3xl};
     h2 {@apply text-2xl};
     h3,h4 {@apply text-xl};
     h1, h2, h3, h4 { @apply title-600};
     h5, h6, p, span {@apply text-500};
+}
+
+@layer components {
+    .card-container { @apply  p-2 hover:border-taskly-woodsmoke-800 border border-transparent};
+    .card-task {@apply bg-taskly-woodsmoke-900 p-2 rounded w-full min-h-9}
+    h1 {@apply text-3xl};
+    h2 {@apply text-2xl};
+    h3,h4 {@apply text-xl};
+    h1, h2, h3, h4 { @apply title-600};
+    h5, h6, p, span {@apply text-500};
+    button {@apply inline-block outline-none px-4 py-2 rounded cursor-pointer w-full min-h-9 min-w-9 text-center}
+    .btn-outline {@apply border border-solid border-taskly-woodsmoke-600 text-taskly-woodsmoke-600 hover:border-taskly-woodsmoke-100 hover:text-taskly-woodsmoke-100 transition ease-linear}
 }
