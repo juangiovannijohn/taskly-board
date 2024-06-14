@@ -1,9 +1,14 @@
 <div class="card-container p-2 rounded">
-    <h4>{{data.title}}</h4>
+    <h3 class="line-clamp-1">{{data.title}}</h3>
     <div class="overflow-hidden">
         @for (task of tasks; track task.idUserHistory) {
             <app-task-card [data]="task"></app-task-card>
         }
     </div>
-    <button (click)="addNew()" class="btn-outline">Nueva tarea</button>
+    <button (click)="addNew()" class="btn-outline my-2 min-w-56 flex flex-row items-center justify-start">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+            <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
+        </svg>   
+       <span class="m-0">New</span>
+    </button>
 </div>

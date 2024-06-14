@@ -19,22 +19,7 @@ const userHistories: UserHistory[]  = [
     title: 'Tercer ejemplo de título',
     _id: '2',
     order: 2
-  },
-  {
-    title: 'Cuarto ejemplo de título',
-    _id: '3',
-    order: 3
-  },
-  {
-    title: 'Quinto ejemplo de título',
-    _id: '4',
-    order: 4
-  },
-  {
-    title: '',
-    _id: '5',
-    order: 5
-  }
+  } 
 ]
 
 
@@ -51,5 +36,39 @@ export class UserHistoryService {
 
   getOne(_id:string){
     return userHistories.find(item => item._id === _id)
+  }
+
+  addNew(userHistory: UserHistory){
+    return userHistories.push(userHistory)
+  }
+
+  getLastId(){
+    // Encuentra el id con el mayor valor en el array
+    let maxId = userHistories.reduce((max, userHistory) => {
+      const currentId = parseInt(userHistory._id);
+      return currentId > max ? currentId : max;
+    }, 0);
+
+    // Suma 1 al id de mayor valor
+    const newId = maxId + 1;
+
+    console.log({newId})
+
+    return newId.toString()
+  }
+
+  getLastOrder(){
+        // Encuentra el id con el mayor valor en el array
+        let maxId = userHistories.reduce((max, userHistory) => {
+          const currentId = userHistory.order;
+          return currentId > max ? currentId : max;
+        }, 0);
+    
+        // Suma 1 al id de mayor valor
+        const newOrder = maxId + 1;
+    
+        console.log({newOrder})
+    
+        return newOrder
   }
 }

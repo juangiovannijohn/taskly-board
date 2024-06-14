@@ -52,44 +52,8 @@ const tasks: Task[] = [
   },
   {
     title: 'Tercera Task de Segundo ejemplo de título',
-    content: 'Contenido de la tercera tarea para el Segundo ejemplo de título',
+    content: 'Contenido de la tercera tarea para el Segundo ejemplo de títuloas aksdaskj sakdjask asdkja k sakdjas kas dkasj kasdj ',
     idUserHistory: '2',
-    order: 2
-  },
-  {
-    title: 'Primera Task de Tercer ejemplo de título',
-    content: 'Contenido de la primera tarea para el Tercer ejemplo de título',
-    idUserHistory: '3',
-    order: 0
-  },
-  {
-    title: 'Segunda Task de Tercer ejemplo de título',
-    content: 'Contenido de la segunda tarea para el Tercer ejemplo de título',
-    idUserHistory: '3',
-    order: 1
-  },
-  {
-    title: 'Tercera Task de Tercer ejemplo de título',
-    content: 'Contenido de la tercera tarea para el Tercer ejemplo de título',
-    idUserHistory: '3',
-    order: 2
-  },
-  {
-    title: 'Primera Task de Cuarto ejemplo de título',
-    content: 'Contenido de la primera tarea para el Cuarto ejemplo de título',
-    idUserHistory: '4',
-    order: 0
-  },
-  {
-    title: 'Segunda Task de Cuarto ejemplo de título',
-    content: 'Contenido de la segunda tarea para el Cuarto ejemplo de título',
-    idUserHistory: '4',
-    order: 1
-  },
-  {
-    title: 'Tercera Task de Cuarto ejemplo de título',
-    content: 'Contenido de la tercera tarea para el Cuarto ejemplo de título',
-    idUserHistory: '4',
     order: 2
   }
 ];

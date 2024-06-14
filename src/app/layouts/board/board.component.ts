@@ -22,8 +22,31 @@ export class BoardComponent implements OnInit {
 
   constructor( private userHistoryService :UserHistoryService){}
   ngOnInit(): void {
+    this.getUserHistories()
+  }
+
+  getUserHistories(){
     console.log('hola')
       this.userHistories = this.userHistoryService.getAll();
       console.log(this.userHistories)
+  }
+
+  addNew(){
+    const newUserHistory: UserHistory ={
+      title:'Editar...',
+      _id: this.getLastId(),
+      order: this.getLastOrder()
+    }
+    this.userHistoryService.addNew(newUserHistory);
+    this.getUserHistories();
+    console.log(this.userHistories)
+  }
+
+  getLastId(){
+    return this.userHistoryService.getLastId();
+  }
+
+  getLastOrder(){
+    return this.userHistoryService.getLastOrder();
   }
 }

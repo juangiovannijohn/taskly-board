@@ -187,21 +187,17 @@
 
 @layer base {
     body {@apply bg-taskly-background text-taskly-white};
-    h1 {@apply text-3xl};
-    h2 {@apply text-2xl};
-    h3,h4 {@apply text-xl};
-    h1, h2, h3, h4 { @apply title-600};
-    h5, h6, p, span {@apply text-500};
+    h1 {@apply text-2xl title-600 mb-1};
+    h2 {@apply text-xl title-600 mb-1};
+    h3 {@apply text-lg title-600 mb-1};
+    h4 {@apply text-lg title-500 mb-1};
+    h5 {@apply text-base title-500 mb-1};
+    h6, p, span {@apply text-400 text-sm mb-1};
 }
 
 @layer components {
-    .card-container { @apply  p-2 hover:border-taskly-woodsmoke-800 border border-transparent};
+    .card-container { @apply  p-2 hover:border-taskly-woodsmoke-800  border border-transparent w-64 h-fit};
     .card-task {@apply bg-taskly-woodsmoke-900 p-2 rounded w-full min-h-9}
-    h1 {@apply text-3xl};
-    h2 {@apply text-2xl};
-    h3,h4 {@apply text-xl};
-    h1, h2, h3, h4 { @apply title-600};
-    h5, h6, p, span {@apply text-500};
     button {@apply inline-block outline-none px-4 py-2 rounded cursor-pointer w-full min-h-9 min-w-9 text-center}
     .btn-outline {@apply border border-solid border-taskly-woodsmoke-600 text-taskly-woodsmoke-600 hover:border-taskly-woodsmoke-100 hover:text-taskly-woodsmoke-100 transition ease-linear}
 }
