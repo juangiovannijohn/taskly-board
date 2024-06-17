@@ -1,4 +1,10 @@
-<div class="bg-red-300 w-full h-full flex flex-col">
+<div class="bg-taskly-woodsmoke-900 w-full h-full flex flex-col">
+    <div class="flex flex-row justify-between items-center p-2 mb-4">
+        <p>Juan Rodriguez</p>        
+        <button class="btn-outline w-fit p-0 flex justify-center items-center" (click)="toggle()"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
+          </svg></button>
+    </div>
 @for (item of itemsMenu; track $index) {
     <app-nav-item  [itemMenu]="item"></app-nav-item>
 }

@@ -1,19 +1,25 @@
 <div class="flex flex-col h-screen">
 
   <div class="flex flex-row w-full h-full">
-    <div [ngClass]="isShowNavBar? 'w-1/6': 'none'" class="">
-      <button (click)="showNavBar()"> esconder</button>
-      <div class="h-full">
-        <app-navbar *ngIf="isShowNavBar" />
-      </div>
+    <div [ngClass]="navbarService.getIsToggled()() ? 'w-full sm:w-1/6': 'none'">
+      @if(navbarService.getIsToggled()()){
+        <div class="h-full">
+          <app-navbar/>
+        </div>
+      }
+
+      <!-- TODO: crear un metodo helpear que devuelva true o false si esta dentro de un rango de px, y el metodo debe recibir como parametro los breackpoints de ttaildwind osea sm,md,lg etc -->
     </div>
-    <div [ngClass]="isShowNavBar? 'w-5/6': 'w-full'" class=" h-full flex flex-col">
-      <div class="ps-1/6 h-12 w-full border-white">
-        <app-header/>
-      </div>
-      <div class="h-full overflow-x-auto">
-        <app-board/>
-      </div>
+    <div id="board-padre" [ngClass]="navbarService.getIsToggled()() ? 'w-0 sm:w-5/6': 'w-full'" class="h-full flex flex-col">
+
+        <div id="board-header"  [ngClass]="navbarService.getIsToggled()() ? 'none w-0 sm:block sm:w-full': 'w-full'" class="ps-1/6 h-12  mb-4">
+          <app-header [ngClass]="navbarService.getIsToggled()() ? 'none w-0 sm:block sm:w-full': 'w-full'"/>
+        </div>
+        <div id="board-content"  class="h-full overflow-x-auto">
+          <app-board/>
+        </div>
+
+
     </div>
   </div>
 </div>

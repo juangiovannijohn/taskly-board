@@ -115,48 +115,6 @@
     font-style: normal;
 }
 
-.btn-primary{
-
-    display: inline-block;
-    outline: 0;
-    cursor: pointer;
-    text-align: center;
-    border: 0;
-    padding: 7px 16px;
-    min-height: 36px;
-    min-width: 36px;
-    color: #ffffff;
-    background: #008060;
-    border-radius: 4px;
-    font-weight: 500;
-    font-size: 14px;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px, rgba(0, 0, 0, 0.2) 0px -1px 0px 0px inset;
-    /* :hover {
-        background: #006e52;
-    } */
-
-}
-
-.btn-outline2{
-
-    outline: 0;
-    border: 1px solid #babfc3;
-    color: #202223;
-    background: #ffffff;
-    border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 0px 0px;
-    /* :hover {
-        background: #f6f6f7;
-        outline: 1px solid transparent;
-    } */
-
-}
-
-.card{
-
-/* b radios, bg, border color, hopver, padding,   */
-}
-
 .inputs{
 /* 
     input[type="submit"], button {
@@ -191,13 +149,19 @@
     h2 {@apply text-xl title-600 mb-1};
     h3 {@apply text-lg title-600 mb-1};
     h4 {@apply text-lg title-500 mb-1};
-    h5 {@apply text-base title-500 mb-1};
+    h5 {@apply text-base title-500 mb-1 leading-4   };
     h6, p, span {@apply text-400 text-sm mb-1};
 }
 
 @layer components {
-    .card-container { @apply  p-2 hover:border-taskly-woodsmoke-800  border border-transparent w-64 h-fit};
+    .card-container { @apply rounded-[1rem] p-4 hover:border-taskly-vermilion-100 hover:border-opacity-40  border border-transparent w-64 h-fit transition ease-linear};
     .card-task {@apply bg-taskly-woodsmoke-900 p-2 rounded w-full min-h-9}
-    button {@apply inline-block outline-none px-4 py-2 rounded cursor-pointer w-full min-h-9 min-w-9 text-center}
-    .btn-outline {@apply border border-solid border-taskly-woodsmoke-600 text-taskly-woodsmoke-600 hover:border-taskly-woodsmoke-100 hover:text-taskly-woodsmoke-100 transition ease-linear}
+    button {@apply inline-block text-center px-6 rounded-lg cursor-pointer w-full min-h-9 min-w-9 text-center}
+    .btn-outline {@apply border border-solid border-taskly-vermilion-600 text-taskly-vermilion-600 hover:border-taskly-vermilion-700 hover:text-taskly-vermilion-700 transition ease-linear active:border-taskly-vermilion-800 active:text-taskly-vermilion-800
+    disabled:border-taskly-vermilion-900 disabled:text-taskly-vermilion-900}
+    .btn-flat {@apply border bg-taskly-vermilion-500  hover:bg-taskly-vermilion-600 transition ease-linear active:bg-taskly-vermilion-700
+    disabled:bg-taskly-vermilion-950 disabled:text-taskly-vermilion-700}
+
+    .card-container h3{ @apply text-taskly-vermilion-600}
+    .card-task h5{ @apply underline decoration-taskly-vermilion-600}
 }

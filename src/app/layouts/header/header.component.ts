@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { NavbarService } from '../navbar/services/navbar.service';
 
 @Component({
   selector: 'app-header',
@@ -9,4 +10,8 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  navbarService = inject(NavbarService)
+  toggle() {
+    this.navbarService.toggle();
+  }
 }
