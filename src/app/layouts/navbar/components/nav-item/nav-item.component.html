@@ -1,8 +1,8 @@
 <a class="px-2 mb-1 flex flex-row justify-between text-taskly-vermilion-600 hover:bg-taskly-woodsmoke-800"
- [routerLink]="[itemMenu.url]"  >
- <div class="flex flex-row items-center p-0 m-0 gap-2">
-    <span class="" [innerHTML]="safeIcon"></span>
-    <p class="hidden md:block text-xs text-taskly-white">{{itemMenu.title}}</p>
-</div>
-    <button class="btn-primary" [innerHTML]="safeIconAction"></button>
+    [routerLink]="[itemMenu.url]">
+    <div class="flex flex-row items-center p-0 m-0 gap-2">
+        <span class="" [innerHTML]="safeIcon"></span>
+        <p class="text-xs text-taskly-white">{{itemMenu.title}}</p>
+    </div>
+    <button *ngIf="safeIconAction == null" class="btn-primary" [innerHTML]="safeIconAction"></button>
 </a>

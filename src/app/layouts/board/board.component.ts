@@ -4,6 +4,7 @@ import { TaskCardComponent } from './components/task-card/task-card.component';
 import { UserHistoryService } from './services/user-history.service';
 import { UserHistory } from './interfaces/user-history.interface';
 import { CommonModule } from '@angular/common';
+import { NavbarService } from '../navbar/services/navbar.service';
 
 
 @Component({
@@ -19,6 +20,7 @@ import { CommonModule } from '@angular/common';
 export class BoardComponent implements OnInit {
   // private userHistoryService = inject(UserHistoryService);
   userHistories: UserHistory[]= []
+  navbarService = inject(NavbarService)
 
   constructor( private userHistoryService :UserHistoryService){}
   ngOnInit(): void {
@@ -26,9 +28,9 @@ export class BoardComponent implements OnInit {
   }
 
   getUserHistories(){
-    console.log('hola')
+    // console.log('hola')
       this.userHistories = this.userHistoryService.getAll();
-      console.log(this.userHistories)
+      // console.log(this.userHistories)
   }
 
   addNew(){

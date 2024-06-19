@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { HeaderComponent } from './layouts/header/header.component';
@@ -19,7 +19,7 @@ import { NavbarService } from './layouts/navbar/services/navbar.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'taskly-taskboard';
+
   navbarService = inject(NavbarService)
 
 }

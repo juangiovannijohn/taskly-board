@@ -1,9 +1,7 @@
-<div class="w-full">
+<div class="w-full " [ngClass]="navbarService.getIsToggled()() ? 'sm:ps-[16.66%]': 'px-0'" class="h-full">
     <div class="flex gap-2">
-        @for (history of userHistories; track history._id) {
-        
+        @for (history of userHistories; track history._id) {      
             <app-user-history [data]="history" />
-    
         }
         <div class="card-container">
             <button (click)="addNew()" class="btn-outline my-2 min-w-56 flex flex-row items-center justify-start">
