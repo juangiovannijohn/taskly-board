@@ -10,8 +10,8 @@
 
       <!-- TODO: crear un metodo helpear que devuelva true o false si esta dentro de un rango de px, y el metodo debe recibir como parametro los breackpoints de ttaildwind osea sm,md,lg etc -->
     </div>
-    <div class="h-full flex flex-col">
-        <div  class="w-full h-12 fixed top-0 start-0" [ngClass]="navbarService.getIsToggled()() ? 'ps-[16.6666%]': 'p-0'">
+    <div class="h-full flex flex-col" [ngClass]="navbarService.getIsToggled()() ? 'ps-[16.6666%]': 'p-0'">
+        <div  class="w-full h-12 fixed top-0 start-0" [ngClass]="navbarService.getIsToggled()() ? 'ps-[16.6666%]': 'ps-2'">
           <app-header/>
         </div>
         <div class="h-full pt-12">

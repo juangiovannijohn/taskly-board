@@ -1,4 +1,4 @@
-<div class="w-full " [ngClass]="navbarService.getIsToggled()() ? 'sm:ps-[16.66%]': 'px-0'" class="h-full">
+<div class="w-full h-full overflow-x-auto space-x-2 mt-2">
     <div class="flex gap-2">
         @for (history of userHistories; track history._id) {      
             <app-user-history [data]="history" />
