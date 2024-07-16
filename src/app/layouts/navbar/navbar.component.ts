@@ -1,6 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NavItemComponent } from './components/nav-item/nav-item.component';
 import { NavbarService } from './services/navbar.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 const itemsMenu = [
   {
     icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -41,17 +42,24 @@ const itemsMenu = [
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [NavItemComponent],
+  imports: [
+    NavItemComponent,
+  HttpClientModule
+  ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   navbarService = inject(NavbarService)
 itemsMenu = itemsMenu
 constructor(){
   console.log(this.itemsMenu)
 }
-
+ngOnInit(): void {
+  this.navbarService.getNavbarItems('668b3dad4866c44c9aaa91c3').subscribe(items =>{
+    console.log('items desde component', items)
+  })
+}
 toggle() {
   this.navbarService.toggle();
 }
