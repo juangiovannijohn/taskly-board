@@ -10,7 +10,7 @@ import { AuthService } from './core/services/auth.service';
 import { authInterceptor } from './core/interceptor/auth.interceptor';
 
 @Component({
-  selector: 'app-root',
+  selector: 'board',
   standalone: true,
   imports: [
     RouterOutlet,
@@ -20,18 +20,12 @@ import { authInterceptor } from './core/interceptor/auth.interceptor';
     CommonModule,
     HttpClientModule
   ],
-  providers:[
-    {
-      provide: HTTP_INTERCEPTORS,
-      useValue: authInterceptor,
-      multi: true
-    }
-  ],
+  providers:[],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit{
-authService = inject(AuthService)
+  authService = inject(AuthService)
   navbarService = inject(NavbarService)
 ngOnInit(): void {
   this.authService.login().subscribe()

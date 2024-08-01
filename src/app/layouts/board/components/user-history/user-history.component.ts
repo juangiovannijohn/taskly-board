@@ -23,6 +23,7 @@ tasks: Task[] | undefined =[];
 
 private taskService = inject(TaskService)
   ngOnInit(): void {
+    console.log('data', this.data)
      this.getTasks(this.data._id)
   }
   getTasks(id:string){

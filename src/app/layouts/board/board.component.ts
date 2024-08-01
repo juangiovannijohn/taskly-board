@@ -5,6 +5,7 @@ import { UserHistoryService } from './services/user-history.service';
 import { UserHistory } from './interfaces/user-history.interface';
 import { CommonModule } from '@angular/common';
 import { NavbarService } from '../navbar/services/navbar.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -18,19 +19,25 @@ import { NavbarService } from '../navbar/services/navbar.service';
   styleUrl: './board.component.css'
 })
 export class BoardComponent implements OnInit {
-  // private userHistoryService = inject(UserHistoryService);
-  userHistories: UserHistory[]= []
+  route = inject(ActivatedRoute)
+  boardId:string = ''
+  userHistories: any[]= []
   navbarService = inject(NavbarService)
 
   constructor( private userHistoryService :UserHistoryService){}
   ngOnInit(): void {
-    this.getUserHistories()
+    this.route.paramMap.subscribe(param=>{
+      this.boardId = param.get('id') || '0000';
+    })
+    console.log('ID del boardd', this.boardId)
+    this.getViewFromBoardId(this.boardId)
   }
 
-  getUserHistories(){
-    // console.log('hola')
-      this.userHistories = this.userHistoryService.getAll();
-      // console.log(this.userHistories)
+  getViewFromBoardId(boardId:string){
+    this.userHistoryService.getOne(boardId).subscribe((data: {message:string, view:any[]}) =>{
+      console.log('vista a mostrarrrr',data.view)
+      this.userHistories = data.view
+    })
   }
 
   addNew(){
@@ -40,7 +47,7 @@ export class BoardComponent implements OnInit {
       order: this.getLastOrder()
     }
     this.userHistoryService.addNew(newUserHistory);
-    this.getUserHistories();
+    this.getViewFromBoardId(this.boardId);
     console.log(this.userHistories)
   }
 

@@ -1,5 +1,8 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { UserHistory } from '../interfaces/user-history.interface';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../../../enviroments/environment';
+import { Observable } from 'rxjs';
 
 
 
@@ -27,15 +30,18 @@ const userHistories: UserHistory[]  = [
   providedIn: 'root'
 })
 export class UserHistoryService {
-
+private http = inject(HttpClient)
+private url = environment.apiUrl
   constructor() { }
 
   getAll():UserHistory[]{
     return userHistories.sort((a,b)=> a.order - b.order);
   }
 
-  getOne(_id:string){
-    return userHistories.find(item => item._id === _id)
+  getOne(_id:string): Observable<{ message: string; view: any[] }> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('token', token ? token : '');
+    return this.http.get<{ message: string; view: any[] }>(`${this.url}views/user-board/${_id}`,{ headers })
   }
 
   addNew(userHistory: UserHistory){

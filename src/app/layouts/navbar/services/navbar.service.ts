@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { tap } from 'rxjs';
+import { catchError, tap, throwError } from 'rxjs';
 
 
 @Injectable({
@@ -25,8 +25,27 @@ export class NavbarService {
     this.isToggled.set(!this.isToggled());
   }
 
-  getNavbarItems(userId: string){
-    return this.http.get(`http://localhost:9090/views/nav-bar/${userId}`).pipe(
-      tap( data => { console.log(data)}))
+  getNavbarItems(userId: string) {
+    console.log('se solicita la los Boards del user id', userId);
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('token', token ? token : '');
+
+    return this.http.get(`http://localhost:9090/views/nav-bar/${userId}`, { headers }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // Error del lado del cliente
+      console.error('Ocurrió un error:', error.error.message);
+    } else {
+      // El backend retornó un código de respuesta de error
+      console.error(
+        `Backend retornó el código ${error.status}, ` +
+        `el cuerpo del error fue: ${error.error}`);
+    }
+    // Retorna un observable con un mensaje de error para el usuario
+    return throwError(() => new Error('Algo malo ocurrió; por favor, intenta de nuevo más tarde.'));
   }
 }
